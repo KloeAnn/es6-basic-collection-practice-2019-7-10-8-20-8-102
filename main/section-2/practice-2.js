@@ -1,5 +1,14 @@
 'use strict';
 
 module.exports = function countSameElements(collection) {
-  return '实现练习要求，并改写该行代码。';
+  let tansItem=(item)=>{
+    if(item.includes("-")){
+      return item.split("-")[0].repeat(item.split("-")[1])
+    }else {
+      return item
+    }
+  }
+  return [...new Set(collection.map(tansItem).join("").split(""))].map(item=>{return{key:item,count:(collection.map(tansItem).join("").split("").filter(i=>i==item).length)}})
 }
+
+
